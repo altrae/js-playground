@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>rotating image</title>
+<meta name="viewport" width="device-width,scale=1.0" />
+<meta name="description" content="rotating images" />
+<style type="text/css">
+* {
+     -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+             box-sizing:border-box;
+}
+body { margin:0 auto; max-width:960px; }
+header { margin:1em 0 0; }
+section { margin:1em 0; border-bottem:1px solid black; }
+footer { position:fixed; bottom:0; margin:1em 0; }
+#hero { position:relative; height:300px; }
+#hero img { position:absolute; z-index:0; max-width:100%; width:960px; height:300px; }
+#hero img.previous { z-index:1; }
+#hero img.current { z-index:2; }
+#contact { padding:0; margin:0 0 1em; text-align: right; }
+#contact li { margin:.25em 0; padding:0; list-style-type:none; }
+#contact a { text-decoration:none; }
+</style>
+</head>
+<body>
+    <header>
+        <ul id="contact">
+            <li>Aaron Dewberry</li>
+            <li><a href="tel://2143479792">214-347-9792</a></li>
+            <li><a href="http://adewberry.com">adewberry.com</a></li>
+        </ul>
+		<nav>
+		</nav>
+		<div id="hero">
+			<img class="current" src="1.jpg" />
+		</div>
+	</header>
+	<section>
+		<h1>Rotating Images</h1>
+		<p>Rotating images are images that rotate. I like rotating images because I look to look at images, but I am too lazy to flip the pages.</p>
+	</section>
+	<footer>
+		&copy Aaron Dewberry
+	</footer>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(function() {
+    var imgs = [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg"
+    ];
+    createImages(imgs);
+    setInterval(rotateImages, 6000);
+});
+
+function createImages(imgs) {
+    $("#hero").empty();
+    $.each(imgs, function(index, value) {
+        var img = $("<img src='" + value + "' />");
+        $("#hero").append(img);
+    });
+    $("#hero img:first").addClass("current");
+}
+
+function rotateImages() {
+    var curImg = $("#hero .current");
+    var nxtImg = curImg.next();
+    if(nxtImg.length == 0) { nxtImg = $("#hero img:first"); }
+    curImg.addClass("previous").removeClass("current");
+    nxtImg.addClass("current").css({opacity:"0"}).animate({opacity:"1"},3000,function() { curImg.removeClass("previous"); });
+}
+</script>
+</body>
+</html>
