@@ -3,6 +3,7 @@
 *.jpg
 !1.jpg
 assets/images/
+test.log
 
 # Windows image file caches
 Thumbs.db
