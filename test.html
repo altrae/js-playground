@@ -10,17 +10,30 @@
         -moz-box-sizing:border-box;
              box-sizing:border-box;
 }
-body { margin:0 auto; max-width:960px; }
+body { margin:0 auto; max-width:960px; padding:0 1em; }
 header { margin:1em 0 0; }
+#content { min-height:100%; margin-bottom:-50px; }
+#content:after { content:""; display:block; }
+footer, #content:after { 
+  height:50px; 
+}
 section { margin:1em 0; border-bottem:1px solid black; }
-footer { position:fixed; bottom:0; margin:1em 0; }
-#hero { position:relative; height:300px; }
+footer { background-color:orange; margin:1em 0; width:100%; padding:.25em; position:relative; color:#FFF; }
+#copyright { position:absolute; bottom:.25em; right:.25em; }
+#hero { position:relative; height:300px; clear:both; }
 #hero img { position:absolute; z-index:0; max-width:100%; width:960px; height:300px; }
 #hero img.previous { z-index:1; }
 #hero img.current { z-index:2; }
 #contact { padding:0; margin:0 0 1em; text-align: right; }
 #contact li { margin:.25em 0; padding:0; list-style-type:none; }
 #contact a { text-decoration:none; }
+nav { background-color:#ccc; width:100%; overflow:auto; }
+nav ul { padding:0; margin:0; float:right; }
+nav ul li { margin:0 auto; padding:.5em 1em; float:left; list-style-type:none; background-color:orange; color:#FFF; }
+nav ul li a { color:#FFF; text-decoration:none; }
+nav ul li a:hover { color:blue; }
+.active { background-color:#666; }
+.highlighted { background-color:#ccc; }
 </style>
 </head>
 <body>
@@ -31,21 +44,29 @@ footer { position:fixed; bottom:0; margin:1em 0; }
             <li><a href="http://adewberry.com">adewberry.com</a></li>
         </ul>
 		<nav>
+			<ul>
+				<li class="active"><a href="#">blah</a></li>
+				<li><a href="#">blah</a></li>
+				<li><a href="http://google.com" target="_blank">blah</a></li>
+				<li><a href="#">blah</a></li>
+			</ul>
 		</nav>
 		<div id="hero">
 			<img class="current" src="1.jpg" />
 		</div>
 	</header>
-	<section>
-		<h1>Rotating Images</h1>
-		<p>Rotating images are images that rotate. I like rotating images because I look to look at images, but I am too lazy to flip the pages.</p>
-	</section>
-	<section>
-		<h1><em>Rotating Images Poem</em></h1>
-		<p>Ro-ro-rotating images, gently through an array. Merrily-merrily-merrily-merrily. The window width is but the screen.</p>
-	</section>
+	<div id="content">
+		<section>
+			<h1>Rotating Images</h1>
+			<p>Rotating images are images that rotate. I like rotating images because I look to look at images, but I am too lazy to flip the pages.</p>
+		</section>
+		<section>
+			<h1>Rotating Images Poem</h1>
+			<p><em>Ro-ro-rotating images,<br />gently through a stream.<br />Merrily, merrily, merrily, merrily.<br />Each image is but a dream.</em></p>
+		</section>
+	</div>
 	<footer>
-		&copy Aaron Dewberry 2015
+		<span id="copyright">&copy Aaron Dewberry 2015</span>
 	</footer>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
@@ -57,7 +78,23 @@ $(function() {
     ];
     createImages(imgs);
     setInterval(rotateImages, 6000);
+	var navItem = $("nav ul li");
+	$(navItem).hover(highlight, highlight);
+	$(navItem).click(setActive);
 });
+
+function highlight(evt) {
+	$(this).toggleClass("highlighted");
+}
+
+function setActive(evt) {
+	evt.preventDefault();
+	var navItem = $("nav ul li").not("active");
+	if(navItem) {
+		$(this).addClass("active");
+		$(this).siblings().removeClass("active");
+	}
+}
 
 function createImages(imgs) {
     $("#hero").empty();
