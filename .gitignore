@@ -1,6 +1,4 @@
 #ignore these
+*.log
 *.txt
-*.jpg
 !1.jpg
-assets/images/
-test.log
