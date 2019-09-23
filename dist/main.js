@@ -106,7 +106,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Slideshow */ \"./js/Slideshow.js\");\n\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n    const images = [\r\n        'assets/images/1.jpg',\r\n        'assets/images/2.jpg',\r\n        'assets/images/3.jpg'\r\n    ];\r\n\r\n    const slideshow = new _Slideshow__WEBPACK_IMPORTED_MODULE_0__[\"default\"](images, 6000);\r\n\r\n    slideshow.init();\r\n\r\n    const navItems = document.querySelectorAll('nav li');\r\n\r\n    navItems.forEach((navItem, index) => {\r\n        navItem.addEventListener('mouseenter', highlight);\r\n        navItem.addEventListener('mouseleave', highlight);\r\n        navItem.addEventListener('click', setActive);\r\n    });\r\n});\r\n\r\nconst highlight = event => {\r\n    const classes = event.currentTarget.classList;\r\n\r\n    classes.toggle('highlighted');\r\n};\r\n\r\nconst setActive = event => {\r\n    const element = event.currentTarget,\r\n        navItems = element.parentNode.querySelectorAll('nav li');\r\n\r\n    event.preventDefault();\r\n\r\n    navItems.forEach((navItem, index) => {\r\n        navItem.classList.remove('active');\r\n    });\r\n\r\n    element.classList.add('active');\r\n};\n\n//# sourceURL=webpack:///./js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./js/utils.js\");\n/* harmony import */ var _Slideshow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Slideshow */ \"./js/Slideshow.js\");\n\r\n\r\n\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n    const images = [\r\n        'assets/images/1.jpg',\r\n        'assets/images/2.jpg',\r\n        'assets/images/3.jpg'\r\n    ];\r\n\r\n    const slideshow = new _Slideshow__WEBPACK_IMPORTED_MODULE_1__[\"default\"](images, 6000);\r\n\r\n    slideshow.init();\r\n\r\n    const navItems = document.querySelectorAll('nav li');\r\n\r\n    navItems.forEach((navItem, index) => {\r\n        navItem.addEventListener('mouseenter', _utils__WEBPACK_IMPORTED_MODULE_0__[\"highlight\"]);\r\n        navItem.addEventListener('mouseleave', _utils__WEBPACK_IMPORTED_MODULE_0__[\"highlight\"]);\r\n        navItem.addEventListener('click', _utils__WEBPACK_IMPORTED_MODULE_0__[\"setActive\"]);\r\n    });\r\n});\n\n//# sourceURL=webpack:///./js/main.js?");
+
+/***/ }),
+
+/***/ "./js/utils.js":
+/*!*********************!*\
+  !*** ./js/utils.js ***!
+  \*********************/
+/*! exports provided: highlight, setActive */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"highlight\", function() { return highlight; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setActive\", function() { return setActive; });\nconst highlight = event => {\r\n    event.currentTarget.classList.toggle('highlighted');\r\n};\r\n\r\nconst setActive = event => {\r\n    event.preventDefault();\r\n\r\n    const { currentTarget } = event;\r\n    const navItems = currentTarget.parentNode.querySelectorAll('nav li');\r\n\r\n    navItems.map(navItem => {\r\n        navItem.classList.remove('active');\r\n    });\r\n\r\n    currentTarget.classList.add('active');\r\n};\n\n//# sourceURL=webpack:///./js/utils.js?");
 
 /***/ })
 

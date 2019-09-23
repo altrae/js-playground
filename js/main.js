@@ -1,3 +1,4 @@
+import { highlight, setActive } from './utils';
 import Slideshow from './Slideshow';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,22 +20,3 @@ document.addEventListener('DOMContentLoaded', () => {
         navItem.addEventListener('click', setActive);
     });
 });
-
-const highlight = event => {
-    const classes = event.currentTarget.classList;
-
-    classes.toggle('highlighted');
-};
-
-const setActive = event => {
-    const element = event.currentTarget,
-        navItems = element.parentNode.querySelectorAll('nav li');
-
-    event.preventDefault();
-
-    navItems.forEach((navItem, index) => {
-        navItem.classList.remove('active');
-    });
-
-    element.classList.add('active');
-};
