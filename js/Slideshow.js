@@ -1,5 +1,5 @@
 export default class Slideshow {
-    constructor(images, interval = 3000) {
+    constructor(images = [], interval = 3000) {
         this.images = images;
         this.interval = interval;
     }
@@ -12,7 +12,7 @@ export default class Slideshow {
             hero.removeChild(hero.firstChild);
         }
 
-        this.images.forEach((image, index) => {
+        this.images.map(image => {
             const imgElement = document.createElement('img');
 
             imgElement.src = image;
