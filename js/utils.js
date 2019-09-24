@@ -6,9 +6,9 @@ export const setActive = event => {
     event.preventDefault();
 
     const { currentTarget } = event;
-    const navItems = currentTarget.parentNode.querySelectorAll('nav ul:not(#contact) li');
+    const navItems = currentTarget.parentNode.querySelectorAll('nav li');
 
-    navItems.map(navItem => {
+    navItems.forEach(navItem => {
         navItem.classList.remove('active');
     });
 

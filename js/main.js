@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slideshow.init();
 
-    const navItems = document.querySelectorAll('nav ul:not(#contact) li');
+    const navItems = document.querySelectorAll('nav li');
 
-    navItems.forEach((navItem, index) => {
+    [...navItems].map(navItem => {
         navItem.addEventListener('mouseenter', highlight);
         navItem.addEventListener('mouseleave', highlight);
         navItem.addEventListener('click', setActive);
