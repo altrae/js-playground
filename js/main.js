@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slideshow.init();
 
-    const navItems = document.querySelectorAll('nav li');
+    const navItems = document.querySelectorAll('nav li') || [];
 
     [...navItems].map(navItem => {
-        navItem.addEventListener('mouseenter', highlight);
-        navItem.addEventListener('mouseleave', highlight);
+        ['mouseenter', 'mouseleave', 'touchstart', 'touchend'].forEach(eventName => {
+            navItem.addEventListener(eventName, highlight);
+        });
+
         navItem.addEventListener('click', setActive);
     });
 });
