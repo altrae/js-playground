@@ -123,7 +123,7 @@ export const getRecipePuppyData = (url, selector) => {
                     })
                     .catch(err => console.debug(`Failed to fetch ${thumbnail} due to ${err}`));
             } else {
-                cardBody.insertAdjacentHTML('afterbegin', `<img src="/assets/images/utensils-icon.png" class="d-block mb-3 mx-auto" alt="${title}"/>`);
+                cardBody.insertAdjacentHTML('afterbegin', `<img src="assets/images/utensils-icon.png" class="d-block mb-3 mx-auto" alt="${title}"/>`);
             }
 
             const ingredientsArray = ingredients.trim().split(',');
