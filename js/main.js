@@ -1,4 +1,4 @@
-import { highlight, setActive } from './utils';
+import { getData, getRecipePuppyData, highlight, setActive } from './utils';
 import Slideshow from './Slideshow';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,4 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         navItem.addEventListener('click', setActive);
     });
+});
+
+getStudioGhibliFilmData('https://ghibliapi.herokuapp.com/films', '#page-2');
+
+document.forms['recipe-fetch-form'].addEventListener('submit', event => {
+    event.preventDefault();
+    getRecipePuppyData('http://www.recipepuppy.com/api/', '#recipe-fetch-list');
 });

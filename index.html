@@ -5,7 +5,6 @@
 	<meta name="viewport" width="device-width,scale=1.0" />
 	<meta name="description" content="rotating images" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="dist/main.css" />
 	<meta charset="UTF-8">
 	<!--style style="display:block" contentEditable>
 	body { color: blue }
@@ -20,17 +19,17 @@
 		</ul>
 		<nav>
 			<ul>
-				<li class="active"><a href="#">blah</a></li>
-				<li><a href="#">blah</a></li>
-				<li><a href="//google.com" target="_blank">blah</a></li>
-				<li><a href="#">blah</a></li>
+				<li class="active" data-page="1"><a href="#">Rotating Images</a></li>
+				<li data-page="2"><a href="#">Studio Ghibli Films</a></li>
+				<li data-page="3"><a href="//google.com" target="_blank">Recipe Puppy Search</a></li>
+				<li data-page="4"><a href="#">Nada</a></li>
 			</ul>
 		</nav>
 	</header>
 	<div id="hero">
 		<img class="current" src="assets/images/1.jpg" />
 	</div>
-	<div id="content">
+	<div data-page="1" id="page-1" class="content active">
 		<section>
 			<h1>Rotating Images</h1>
 			<p>Rotating images are images that rotate. I like rotating images because I like to look at images, but I am too lazy to flip the pages.</p>
@@ -40,10 +39,23 @@
 			<p><em>Ro-ro-rotating images,<br />gently through a stream.<br />Merrily, merrily, merrily, merrily.<br />Each image is but a dream.</em></p>
 		</section>
 	</div>
+	<div data-page="2" id="page-2" class="content">
+	</div>
+	<div data-page="3" id="page-3" class="content">
+		<form id="recipe-fetch-form" method="get" class="text-center">
+        <div class="form-group my-3">
+            <input class="p-1 border rounded" type="text" name="q" id="name" size="50" placeholder="Find recipe (e.g. chicken, vegan, eggroll, pastry)" required />
+        </div>
+        <div class="form-submit">
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </div>
+    </form>
+    <div id="recipe-fetch-list" class="d-flex flex-wrap"></div>
+	</div>
 	<footer>
 		<span id="copyright">&copy; Aaron Dewberry 2019</span>
 	</footer>
-<script src="dist/main.js"></script>
+<script src="dist/bundle.js"></script>
 <script>
 // var url = window.location.href;
 // var pathname = window.location.pathname;
@@ -55,25 +67,26 @@
 // // any property of window.location works here:
 // document.write('The hostname of ' + url + ' is ' + a.hostname);
 
-// // Create an empty array called "stack"
-// var stack = [];
-// // Here is our recursive function
-// function power (base, exponent) {
-//   // Base case 
-//   if ( exponent === 0 ) {
-//     return 1;
-//   }
-//   // Recursive case
-//   else {
-// 	stack[exponent - 1] = base * power(base, exponent - 1);
-// 	console.log(stack[exponent-1]);
-//     return stack[exponent - 1];
-//   }
-// }
+// Create an empty array called "stack"
+const stack = [];
+// Here is our recursive function
+const power = (base, exponent) => {
+	// Base case 
+   	if (exponent === 0) {
+    	return 1;
+   	}
+   	// Recursive case
+   	else {
+		stack[exponent - 1] = base * power(base, exponent - 1);
+ 		console.log(stack[exponent-1]);
+
+		return stack[exponent - 1];
+   	}
+}
 
 // var result = power(3,3);
 // console.log(result);
-// var confirmed = confirm("blababasd");
+// var confirmed = confirm(result);
 // console.log(confirmed);
 
 // var bob = {
