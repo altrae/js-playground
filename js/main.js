@@ -1,4 +1,4 @@
-import { getData, getRecipePuppyData, highlight, setActive } from './utils';
+import { getRecipePuppyData, getStudioGhibliFilmData, highlight, setActive } from './utils';
 import Slideshow from './Slideshow';
 
 document.addEventListener('DOMContentLoaded', () => {
