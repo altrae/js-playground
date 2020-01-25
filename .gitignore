@@ -2,4 +2,5 @@
 *.log
 *.txt
 !1.jpg
-node_modules
+node_modules/
+dist/

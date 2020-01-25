@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>rotating images - what i like</title>
+    <meta name="viewport" width="device-width,scale=1.0" />
+    <meta name="description" content="rotating images" />
+    <!--style style="display:block" contentEditable>
+	body { color: blue }
+    </style-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <header>
+        <ul id="contact">
+            <li>Aaron Dewberry</li>
+            <li><a href="tel://2143479792">214-347-9792</a></li>
+            <li><a href="//adewberry.com" target="_blank">adewberry.com</a></li>
+        </ul>
+        <nav>
+            <ul>
+                <li class="active" data-page="1"><a href="#">Rotating Images</a></li>
+                <li data-page="2"><a href="#">Studio Ghibli Films</a></li>
+                <li data-page="3"><a href="//google.com" target="_blank">Recipe Puppy Search</a></li>
+                <li data-page="4"><a href="#">Nada</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="hero">
+        <img class="placeholder" src="./assets/images/1.jpg" />
+    </div>
+    <div data-page="1" id="page-1" class="content active">
+        <section>
+            <h1>Rotating Images</h1>
+            <p>Rotating images are images that rotate. I like rotating images because I like to look at images, but I am too lazy to flip the pages.</p>
+        </section>
+        <section>
+            <h1>Rotating Images Poem</h1>
+            <p><em>Ro-ro-rotating images,<br />gently through a stream.<br />Merrily, merrily, merrily, merrily.<br />Each image is but a dream.</em></p>
+        </section>
+    </div>
+    <div data-page="2" id="page-2" class="content">
+    </div>
+    <div data-page="3" id="page-3" class="content">
+        <form id="recipe-fetch-form" method="get" class="text-center">
+            <div class="form-group my-3">
+                <input class="p-1 border rounded" type="text" name="q" id="name" size="50" placeholder="Find recipe (e.g. chicken, vegan, eggroll, pastry)" required />
+            </div>
+            <div class="form-submit">
+                <input type="submit" class="btn btn-primary" value="Search" />
+            </div>
+        </form>
+        <div id="recipe-fetch-list" class="d-flex flex-wrap"></div>
+    </div>
+    <footer>
+        <span id="copyright">&copy; Aaron Dewberry 2019</span>
+    </footer>
+</body>
+
+</html>

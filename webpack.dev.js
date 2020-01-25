@@ -1,10 +1,13 @@
 const path = require('path');
+const common = require('./webpack.common');
+const merge = require('webpack-merge');
 
-module.exports = {
-    entry: ['./js/main.js', './css/main.scss'],
+module.exports = merge(common, {
+    mode: 'development',
     module: {
         rules: [{
-            test: /\.s[ac]ss$/i,
+            exclude: /node_modules/,
+            test: /\.s[ac]ss$/,
             use: [
                 // Creates `style` nodes from JS strings
                 'style-loader',
@@ -12,18 +15,11 @@ module.exports = {
                 'css-loader',
                 // Compiles Sass to CSS
                 'sass-loader'
-            ],
-        }, ],
+            ]
+        }]
     },
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     output: {
-        filename: 'bundle.js',
+        filename: '[name]-bundle.js',
         path: path.resolve(__dirname, 'dist')
-    },
-    resolve: {
-        extensions: ['*', '.js', '.jsx', '.css'],
-        modules: [
-            'node_modules'
-        ]
     }
-};
+});

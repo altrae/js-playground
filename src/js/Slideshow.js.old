@@ -12,6 +12,9 @@ export default class Slideshow {
             hero.removeChild(hero.firstChild);
         }
 
+        // Alternate empty hero
+        hero.innerHTML = '';
+
         this.images.map(image => {
             const imgElement = document.createElement('img');
 
