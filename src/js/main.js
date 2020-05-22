@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { getRecipePuppyData, getStudioGhibliFilmData, highlight, setActive, invertObj } from './utils';
-import Slideshow from './Slideshow';
+import Slideshow from './slideshow';
 import '../css/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         '/src/assets/images/2.jpg',
         '/src/assets/images/3.jpg'
     ];
-
-    // const slideshow = new Slideshow(images, 6000);
-
-    // slideshow.init();
 
     const navItems = document.querySelectorAll('nav li') || [];
 
@@ -25,16 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
         navItem.addEventListener('click', setActive);
     });
 
-    const userToSkill = {
-        'lemiesz': ['reactjs', 'web', 'java'],
-        'kimia': ['java', 'dynamodb'],
-        'sai': ['html', 'frontend']
+    const slideshowProps = {
+        images,
+        rotationInterval: 3000
     };
 
-    console.info(invertObj(userToSkill));
-
     ReactDOM.render(
-        <Slideshow images={ images } interval='3000' />,
+        <Slideshow {...slideshowProps } />,
         document.getElementById('hero')
     );
 });

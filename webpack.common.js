@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
     // devtool: 'none', // removes eval in bundle.js for 
     entry: {
-        main: './src/js/main.jsx',
+        main: './src/js/main.js',
         vendor: './src/js/vendor.js'
     },
     // [

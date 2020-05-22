@@ -1,12 +1,4 @@
-// var url = window.location.href;
-// var pathname = window.location.pathname;
-// var a = document.createElement('a');
-// a.href = url;
-// console.log(url);
-// console.log(pathname);
-
-// // any property of window.location works here:
-// document.write('The hostname of ' + url + ' is ' + a.hostname);
+import invertObj from './utils';
 
 // Create an empty array called "stack"
 const stack = [];
@@ -25,49 +17,44 @@ const power = (base, exponent) => {
     }
 }
 
-// var result = power(3,3);
-// console.log(result);
-// var confirmed = confirm(result);
-// console.log(confirmed);
+const bob = {
+    firstName: "Bob",
+    lastName: "Jones",
+    phoneNumber: "(650) 777-7777",
+    email: "bob.jones@example.com"
+};
 
-// var bob = {
-//     firstName: "Bob",
-//     lastName: "Jones",
-//     phoneNumber: "(650) 777-7777",
-//     email: "bob.jones@example.com"
-// };
+const mary = {
+    firstName: "Mary",
+    lastName: "Johnson",
+    phoneNumber: "(650) 888-8888",
+    email: "mary.johnson@example.com"
+};
 
-// var mary = {
-//     firstName: "Mary",
-//     lastName: "Johnson",
-//     phoneNumber: "(650) 888-8888",
-//     email: "mary.johnson@example.com"
-// };
+// const contacts = [bob, mary];
 
-// var contacts = [bob, mary];
-
-// var printPerson = function (person) {
+// const printPerson = function (person) {
 //     console.log(person.firstName + " " + person.lastName);
 // }
 
-// var list = function () {
-// 	var contactsLength = contacts.length;
-// 	for (var i = 0; i < contactsLength; i++) {
+// const list = function () {
+// 	const contactsLength = contacts.length;
+// 	for (let i = 0; i < contactsLength; i++) {
 // 		printPerson(contacts[i]);
 // 	}
 // }
 
-// var search = function (lastName) {
-//     var contactsLength = contacts.length;
-//     for (var i = 0; i < contactsLength; i++) {
+// const search = function (lastName) {
+//     const contactsLength = contacts.length;
+//     for (let i = 0; i < contactsLength; i++) {
 // 		if (lastName.toLowerCase() === contacts[i].lastName.toLowerCase()) {
 // 		    printPerson(contacts[i]);
 // 		}
 // 	}
 // };
 
-// var add = function (firstName, lastName, phoneNumber, email) {
-//     var newPerson = {
+// const add = function (firstName, lastName, phoneNumber, email) {
+//     const newPerson = {
 //         firstName: firstName,
 //         lastName: lastName,
 //         phoneNumber: phoneNumber,
@@ -80,14 +67,15 @@ const power = (base, exponent) => {
 // list();
 
 // function callAnotherFunction(arg1, arg2, arg3) {
-// 	var times = $.isNumeric(arg1) ? arg1 : 3;
-// 	var delay = $.isNumeric(arg2) ? arg2 : 3000;
-// 	var funcToCall = $.isFunction(arg1) ? arg1 : $.isFunction(arg2) ? arg2 : arg3;
+// 	const times = $.isNumeric(arg1) ? arg1 : 3;
+// 	const delay = $.isNumeric(arg2) ? arg2 : 3000;
+// 	const funcToCall = $.isFunction(arg1) ? arg1 : $.isFunction(arg2) ? arg2 : arg3;
 
-// 	var i = 0;
+// 	let i = 0;
 // 	(function loopit() {
 // 		i++;
 // 		funcToCall();
+
 // 		if(i < times) setTimeout(loopit, delay);
 // 	})();
 // }
@@ -102,8 +90,8 @@ const power = (base, exponent) => {
 // });
 
 
-// var myArray = [1, 2, 3, 4, 5, 6, 7, 7, 6];
-// var myArray2 = [9, 10, 12]
+// const myArray = [1, 2, 3, 4, 5, 6, 7, 7, 6];
+// const myArray2 = [9, 10, 12]
 // if($.inArray(4, myArray) != -1)
 // 	console.log("4 is in the array");
 // if($.inArray(77, myArray) != -1)
@@ -113,12 +101,12 @@ const power = (base, exponent) => {
 // $.merge(myArray, myArray2);
 // console.log(myArray);
 
-// var newArray = $.map(myArray, function(value, key) {
+// const newArray = $.map(myArray, function(value, key) {
 // 	return value * 2;
 // });
 // console.log(newArray);
 
-// var grepArray = $.grep(myArray, function(value) {
+// const grepArray = $.grep(myArray, function(value) {
 // 	return value%2 == 0;
 // });
 // console.log(grepArray);
@@ -144,9 +132,9 @@ _.prototype = {
 	next: function() {
 		this.prevBoard = cloneArray(this.board);
 
-		for (var y = 0; y < this.height; y++) {
-			for (var x = 0; x < this.width; x++) {
-				var neighbors = this.aliveNeighbors(this.prevBoard, x, y);
+		for (let y = 0; y < this.height; y++) {
+			for (let x = 0; x < this.width; x++) {
+				const neighbors = this.aliveNeighbors(this.prevBoard, x, y);
 			}
 		}
 	},
@@ -157,7 +145,7 @@ _.prototype = {
 		let nextRow = array[y + 1] || [];
 		let currRow = array[y];
 
-		let neighbors = [
+		const neighbors = [
 			prevRow[x - 1],
 			prevRow[x],
 			prevRow[x + 1],
@@ -218,5 +206,51 @@ const userToSkill = {
 //      'frontend': ['sai'],
 //      'dynamodb': ['sai']
 //  }
+
+console.info(invertObj(userToSkill));
+
+
+
+
+
+(() => {
+    const isNetflix = window.location.href.indexOf('netflix.com') > -1;
+    const slider = [...document.querySelectorAll('.slider')];
+    // const sliderButton = [...document.querySelectorAll('.sliderButton')];
+    const sliderButton = [...document.querySelectorAll('.slider-item')];
+    const evidence = [...document.querySelectorAll('.evidence')];
+    const sharingPrompt = [...document.querySelectorAll('.sharing-prompt')];
+    const boxShotDivider = [...document.querySelectorAll('.boxShotDivider')];
+    const elSet = new Set();
+
+    elSet.add(sliderButton);
+    elSet.add(evidence);
+    elSet.add(sharingPrompt);
+    elSet.add(boxShotDivider);
+
+    if (!isNetflix && confirm('Please open Netflix and try again. Would you like me to redirect you to netflix.com?')) {
+        window.location.href = 'http://netflix.com';
+    }
+
+    console.log(elSet);
+
+    elSet.forEach(
+        elArray => elArray.map(element => element.parentNode.replaceChild(element.firstChild, element))
+    );
+
+    console.log(slider);
+
+    slider.map(
+        element => { element.parentNode.removeChild(element) }
+    );
+})();
+
+
+
+const userToSkill = {
+    'lemiesz': ['reactjs', 'web', 'java'],
+    'kimia': ['java', 'dynamodb'],
+    'sai': ['html', 'frontend']
+};
 
 console.info(invertObj(userToSkill));
