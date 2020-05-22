@@ -1,0 +1,36 @@
+@import 'yoda-design-tokens';
+
+/* input label default position */
+.input-label {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .25s ease-in-out .1s;
+}
+
+/* animate label to top if input is in focus or has value */
+.label-to-top {
+  font-size: var(--font-size-xsmall);
+  padding: 0 var(--spacing-1);
+  top: -.75rem;
+  transition: all .25s ease-in-out .1s;
+}
+
+/* show password button position */
+.show-password {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* default input styling */
+input {
+  box-shadow: none;
+  min-height: 48px;
+  min-width: 327px;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--color-core-gray-500);
+  }
+}

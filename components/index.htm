@@ -1,0 +1,79 @@
+<head>
+    <style type="text/css" media="screen">
+        input {
+            flex: 1 auto;
+        }
+
+        .questions {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .question {
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        .answers {
+            display: flex;
+            width: 300px;
+            margin: 1em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="questions">
+        <div class="question active">
+            <h1>Question 1</h1>
+            <p>What is 9 + 1?</p>
+
+            <p class="answerKey">
+                A = 10<br />
+                B = 20<br />
+                C = 30<br />
+                D = 40
+            </p>
+
+            <div class="answers">
+                <label id="1a" for="a">A</label>
+                <input id="1a" name="answer" type="radio" value="10" />
+                <label for="1b">B</label>
+                <input id="1b" name="answer" type="radio" value="20" />
+                <label for="1c">C</label>
+                <input id="1c" name="answer" type="radio" value="30" />
+                <label for="1d">D</label>
+                <input id="1d" name="answer" type="radio" value="40" />
+            </div>
+        </div>
+
+        <div class="question">
+            <h1>Question 2</h1>
+            <p>What is 15 + 2?</p>
+
+            <p class="answerKey">
+                A = 10<br />
+                B = 17<br />
+                C = 33<br />
+                D = 4
+            </p>
+
+            <div class="answers">
+                <label id="1b" for="a">A</label>
+                <input id="1a" name="answer" type="radio" value="10" />
+                <label for="1b">B</label>
+                <input id="1c" name="answer" type="radio" value="17" />
+                <label for="1c">C</label>
+                <input id="1d" name="answer" type="radio" value="33" />
+                <label for="1d">D</label>
+                <input id="1d" name="answer" type="radio" value="4" />
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="index.js"></script>
