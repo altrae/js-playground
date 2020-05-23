@@ -2,8 +2,8 @@ import React, { useState, forwardRef } from 'react';
 import { bool, func, number, oneOf, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import Icon from '../../Icon';
-import * as styles from './image.css';
+import Icon from '../Icon';
+import * as styles from './image.scss';
 
 const cx = classNames.bind(styles);
 
@@ -47,8 +47,6 @@ const cx = classNames.bind(styles);
 const Image = forwardRef((props, ref) => {
     const {
         alt,
-        analyticsTag,
-        automationId,
         className,
         height,
         loader,
@@ -141,7 +139,7 @@ const Image = forwardRef((props, ref) => {
             style: { paddingBottom: getImgRatio() },
         },
         wrapper: {
-            'data-automation-id': automationId,
+            'data-component-name': 'Image',
             className: [
                 className,
                 cx({
@@ -176,19 +174,8 @@ const Image = forwardRef((props, ref) => {
     const getImage = () => {
         // eslint-disable-next-line jsx-a11y/img-has-alt
         let image = <img {...config.img} />;
-
         if (route) image = <Link to={route}>{image}</Link>;
-
-        if (href) {
-            // Append analytics tag when href doesn't contain 'cm_re'.
-            if (analyticsTag && !/cm_re/i.test(href)) {
-                href.includes('?')
-                    ? href += `&${analyticsTag}`
-                    : href += `?${analyticsTag}`;
-            }
-
-            image = <a href={href} target={target}>{image}</a>;
-        }
+        if (href) image = <a href={href} target={target}>{image}</a>;
 
         return isPlaceholder ? getPlaceholder() : image;
     };
@@ -211,10 +198,6 @@ Image.propTypes = {
     alt: string.isRequired,
     /** Source path of the image. */
     src: string.isRequired,
-    /** Analytics tagging. */
-    analyticsTag: string,
-    /** Automation testing ID. */
-    automationId: string,
     /** Allows custom class(es) for img wrapper element. */
     className: string,
     /** Height of image used calculate the image ratio. */
@@ -246,8 +229,6 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
-    analyticsTag: null,
-    automationId: null,
     className: null,
     height: null,
     href: null,

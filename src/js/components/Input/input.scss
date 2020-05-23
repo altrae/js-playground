@@ -1,5 +1,3 @@
-@import 'yoda-design-tokens';
-
 /* input label default position */
 .input-label {
   left: 1rem;
@@ -10,8 +8,8 @@
 
 /* animate label to top if input is in focus or has value */
 .label-to-top {
-  font-size: var(--font-size-xsmall);
-  padding: 0 var(--spacing-1);
+  font-size: .75rem;
+  padding: 0 .5rem;
   top: -.75rem;
   transition: all .25s ease-in-out .1s;
 }
@@ -31,6 +29,30 @@ input {
   width: 100%;
 
   &::placeholder {
-    color: var(--color-core-gray-500);
+    color: #333;
   }
+}
+
+.font-open-sans-regular {
+  font: {
+    family: 'Open Sans',OpenSans,sans-serif;
+    style: normal;
+    weight: 400;
+  }
+}
+
+.text-small {
+  font-size: .875rem !important;
+}
+
+.text-xsmall {
+  font-size: .75em !important;
+}
+
+.max-width-full {
+  max-width: 100% !important;
+}
+
+.w-full {
+  width: 100% !important;
 }

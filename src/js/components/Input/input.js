@@ -1,4 +1,3 @@
-import classNames from 'classnames/bind';
 import {
     bool,
     func,
@@ -13,9 +12,6 @@ import HelperText from './components/helperText';
 import Label from './components/label';
 import ShowPassword from './components/showPassword';
 import { validateErrorTextPropType } from './customPropTypeValidation';
-import * as styles from './input.css';
-
-const cx = classNames.bind(styles);
 
 /**
  * Displays an email, password, tel, or text input field
@@ -24,27 +20,24 @@ const cx = classNames.bind(styles);
  * All extra `props` (not accounted for in `propTypes`)
  * get spread on the `<input />` element, including `ref`.
  */
-const Input = forwardRef((props, ref) => {
-    const {
-        automationId,
-        defaultValue,
-        disableAutoFeatures,
-        disabled,
-        errorText,
-        helpText,
-        id,
-        inputClassName,
-        inputType,
-        name,
-        onBlur,
-        onChange,
-        onFocus,
-        pattern,
-        label,
-        wrapperClassName,
-        ...additionalProps
-    } = props;
-
+const Input = forwardRef(({
+    defaultValue,
+    disableAutoFeatures,
+    disabled,
+    errorText,
+    helpText,
+    id,
+    inputClassName,
+    inputType,
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    pattern,
+    label,
+    wrapperClassName,
+    ...additionalProps
+}, ref) => {
     const [erroneous, setErroneous] = useState(false);
     const [focused, setFocused] = useState(false);
     const [showPasswordButtonText, setShowPasswordButtonText] = useState('show');
@@ -84,33 +77,24 @@ const Input = forwardRef((props, ref) => {
 
     const classes = {
         input: [
-            'font-open-sans',
-            'px-2',
+            'font-open-sans-regular',
+            'px-3',
             'py-1',
             'rounded-medium',
-            cx({
-                // apply background color
-                'bg-gray-100': disabled,
-                'bg-white-100': !disabled,
-                // apply border width
-                'border-1': !erroneous,
-                'border-2': erroneous,
-                // apply border style
-                'border-dashed': disabled,
-                'border-solid': !disabled,
-                // apply border color
-                'border-error': erroneous,
-                'border-gray-300': !erroneous,
-                'border-gray-600': focused,
-            }),
             inputClassName,
-        ].join(' '),
+        ],
         wrapper: [
-            'relative',
-            cx('input-wrapper'),
+            'input-wrapper',
+            'position-relative',
             wrapperClassName,
-        ].join(' '),
+        ],
     };
+
+    if (disabled) classes.input.push('bg-secondary', 'border-dashed');
+    if (!disabled) classes.input.push('bg-white', 'border-solid');
+    if (erroneous) classes.input.push('border-2', 'border-error');
+    if (!erroneous) classes.input.push('border-1', 'border-gray-300');
+    if (focused) classes.input.push('border-gray-600');
 
     const componentProps = {
         helperText: {
@@ -120,7 +104,7 @@ const Input = forwardRef((props, ref) => {
         },
         input: {
             ...additionalProps,
-            className: classes.input,
+            className: classes.input.join(' '),
             disabled,
             id,
             name,
@@ -145,10 +129,9 @@ const Input = forwardRef((props, ref) => {
             buttonText: showPasswordButtonText,
             onClick: eventHandlers.onShowPasswordClick,
         },
-        wrapper: { className: classes.wrapper },
+        wrapper: { className: classes.wrapper.join(' ') },
     };
 
-    if (automationId) componentProps.wrapper['data-automation-id'] = automationId;
     if (erroneous) componentProps.input['aria-invalid'] = true;
 
     if (disableAutoFeatures) {
@@ -160,7 +143,7 @@ const Input = forwardRef((props, ref) => {
 
     return (
         <div {...componentProps.wrapper}>
-            <span className="relative">
+            <span className="position-relative">
                 <input {...componentProps.input} />
                 <Label {...componentProps.label} />
                 {showPasswordButton && <ShowPassword {...componentProps.showPasswordButton} />}
@@ -185,8 +168,6 @@ Input.propTypes = {
      * the form as part of a name/value pair.
      */
     name: string.isRequired,
-    /** ID for automated testing. */
-    automationId: string,
     /** Initial input value. */
     defaultValue: string,
     /**
@@ -250,16 +231,15 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-    automationId: '',
     defaultValue: '',
     disableAutoFeatures: false,
     disabled: false,
     errorText: '',
     helpText: '',
     inputClassName: '',
-    onBlur: () => {},
-    onChange: () => {},
-    onFocus: () => {},
+    onBlur: () => { },
+    onChange: () => { },
+    onFocus: () => { },
     pattern: null,
     wrapperClassName: '',
 };

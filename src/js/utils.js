@@ -1,8 +1,8 @@
-export const highlight = event => {
+const highlight = event => {
     event.currentTarget.classList.toggle('highlighted');
 };
 
-export const setActive = event => {
+const setActive = event => {
     event.preventDefault();
 
     const { currentTarget } = event;
@@ -25,7 +25,7 @@ export const setActive = event => {
     currentTarget.classList.add('active');
 };
 
-export const getStudioGhibliFilmData = (url, selector) => {
+const getStudioGhibliFilmData = (url, selector) => {
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -39,34 +39,37 @@ export const getStudioGhibliFilmData = (url, selector) => {
             outerContainer.appendChild(section);
             section.classList.add('container');
 
-            data.forEach(movie => {
+            data.forEach(({
+                description,
+                title,
+                url,
+            }) => {
                 const card = document.createElement('div');
                 card.classList.add('card');
 
                 const h1 = document.createElement('h1');
-                h1.textContent = movie.title;
+                h1.textContent = title;
 
                 const p = document.createElement('p');
-                p.textContent = movie.description;
+                p.textContent = description;
 
                 section.appendChild(card);
                 card.appendChild(h1);
                 card.appendChild(p);
 
-                if (movie.title === 'My Neighbor Totoro') {
-                    movie.url = 'https://404.com/whatever';
+                if (title === 'My Neighbor Totoro') {
+                    url = 'https://404.com/whatever';
                 }
 
-                fetch(movie.url)
-                    .then(response => {
-                        if (response.ok) {
+                fetch(url)
+                    .then(({ ok }) => {
+                        if (ok) {
                             const a = document.createElement('a');
                             a.href = movie.url;
                             a.classList.add('movie-link');
                             a.textContent = 'Link';
                             p.appendChild(a);
                         }
-                        // console.log(response);
                     })
                     .catch(err => console.debug(err));
             });
@@ -74,8 +77,8 @@ export const getStudioGhibliFilmData = (url, selector) => {
         .catch(error => console.log(error));
 };
 
-export const getRecipePuppyData = (url, selector) => {
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
+const getRecipePuppyData = (url, selector) => {
+    const proxy = '//cors-anywhere.herokuapp.com/';
 
     let searchParams = new URLSearchParams();
     for (const pair of new FormData(document.forms['recipe-fetch-form'])) {
@@ -107,7 +110,7 @@ export const getRecipePuppyData = (url, selector) => {
             const sortedRecipes = sortRecipeByTitle(data.results);
 
             sortedRecipes.forEach(recipe => {
-                const { title, ingredients, href, thumbnail } = recipe;
+                const { href, ingredients, thumbnail, title } = recipe;
 
                 const card = document.createElement('div');
                 card.classList.add('card');
@@ -121,8 +124,8 @@ export const getRecipePuppyData = (url, selector) => {
 
                 if (thumbnail) {
                     fetch(proxyUrl + thumbnail, { 'Retry-After': 3600 })
-                        .then(response => {
-                            if (response.ok && response.status >= 200 && response.status <= 400) {
+                        .then(({ ok, status }) => {
+                            if (ok && status >= 200 && status <= 400) {
                                 cardBody.insertAdjacentHTML('afterbegin', `<img src="${thumbnail}" class="d-block mb-3 mx-auto" alt="${title}"/>`);
                             } else {
                                 cardBody.insertAdjacentHTML('afterbegin', `<img src="/src/assets/images/utensils-icon.png" class="d-block mb-3 mx-auto" alt="${title}"/>`);
@@ -170,8 +173,8 @@ export const getRecipePuppyData = (url, selector) => {
                 card.appendChild(cardBody);
 
                 fetch(proxyUrl + href, { 'Retry-After': 3600 })
-                    .then(response => {
-                        if (response.ok) {
+                    .then(({ ok }) => {
+                        if (ok) {
                             const recipeLink = document.createElement('a');
                             recipeLink.href = href;
                             recipeLink.target = '_blank';
@@ -199,7 +202,7 @@ const sortRecipeByTitle = arr => arr
     });
 
 
-export const invertObj = input => {
+const invertObj = input => {
     let newObj = Object.create(null);
     let tempArr = [];
 
@@ -224,4 +227,13 @@ export const invertObj = input => {
 const isNull = item => item === null;
 const isUndefined = item => item === undefined;
 
-export const isNullOrUndefined = item => isNull(item) || isUndefined(item);
+const isNullOrUndefined = item => isNull(item) || isUndefined(item);
+
+export {
+    getRecipePuppyData,
+    getStudioGhibliFilmData,
+    highlight,
+    invertObj,
+    isNullOrUndefined,
+    setActive,
+};

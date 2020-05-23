@@ -1,20 +1,18 @@
 import classNames from 'classnames/bind';
 import React from 'react';
 import { func, string } from 'prop-types';
-import * as styles from './../input.css';
-
-const cx = classNames.bind(styles);
+import * as styles from './../input.scss';
 
 const ShowPassword = ({
     buttonText,
     onClick,
 }) => {
     const className = [
-        'absolute',
+        'btn',
+        'btn-link',
+        'position-absolute',
+        'show-password',
         'text-xsmall',
-        'hover:underline',
-        'underline',
-        cx('show-password'),
     ].join(' ');
 
     const props = {

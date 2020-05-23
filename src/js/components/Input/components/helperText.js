@@ -14,8 +14,8 @@ const HelperText = ({
         : helpText;
 
     const helperTextColor = erroneous
-        ? 'text-error'
-        : 'text-gray-400';
+        ? 'text-danger'
+        : 'text-secondary';
 
     const props = {
         className: `${helperTextColor} text-small`,
@@ -23,9 +23,9 @@ const HelperText = ({
 
     return (
         helperText
-            && <div {...props}>
-                {helperText}
-            </div>
+        && <div {...props}>
+            {helperText}
+        </div>
     );
 };
 
