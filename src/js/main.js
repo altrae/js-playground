@@ -7,17 +7,29 @@ import '../css/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
     const images = [
+        // {
+        //     alt: 'sunset',
+        //     src: '/src/assets/images/1.jpg',
+        // },
+        // {
+        //     alt: 'flowers',
+        //     src: '/src/assets/images/2.jpg',
+        // },
+        // {
+        //     alt: 'flower bowl',
+        //     src: '/src/assets/images/3.jpg',
+        // },
         {
-            alt: 'sunset',
-            src: '/src/assets/images/1.jpg',
+            alt: 'big tits',
+            src: '/src/assets/images/4.jpg',
         },
         {
-            alt: 'flowers',
-            src: '/src/assets/images/2.jpg',
+            alt: 'big tits',
+            src: '/src/assets/images/5.jpg',
         },
         {
-            alt: 'flower bowl',
-            src: '/src/assets/images/3.jpg',
+            alt: 'big tits',
+            src: '/src/assets/images/6.jpg',
         },
     ];
 
