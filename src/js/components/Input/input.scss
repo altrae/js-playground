@@ -1,58 +1,67 @@
 /* input label default position */
+
 .input-label {
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all .25s ease-in-out .1s;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .25s ease-in-out .1s;
 }
+
 
 /* animate label to top if input is in focus or has value */
+
 .label-to-top {
-  font-size: .75rem;
-  padding: 0 .5rem;
-  top: -.75rem;
-  transition: all .25s ease-in-out .1s;
+    font-size: .75rem;
+    padding: 0 .5rem;
+    top: -.75rem;
+    transition: all .25s ease-in-out .1s;
 }
+
 
 /* show password button position */
+
 .show-password {
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* default input styling */
-input {
-  box-shadow: none;
-  min-height: 48px;
-  min-width: 327px;
-  width: 100%;
 
-  &::placeholder {
-    color: #333;
-  }
+/* default input styling */
+
+input {
+    box-shadow: none;
+    min-height: 48px;
+    min-width: 327px;
+    width: 100%;
+    &::placeholder {
+        color: #333;
+    }
+    &:focus {
+        outline: auto 1px orange;
+    }
 }
 
 .font-open-sans-regular {
-  font: {
-    family: 'Open Sans',OpenSans,sans-serif;
-    style: normal;
-    weight: 400;
-  }
+    font: {
+        family: 'Open Sans', OpenSans, sans-serif;
+        style: normal;
+        weight: 400;
+    }
 }
 
 .text-small {
-  font-size: .875rem !important;
+    font-size: .875rem !important;
 }
 
 .text-xsmall {
-  font-size: .75em !important;
+    font-size: .75em !important;
 }
 
 .max-width-full {
-  max-width: 100% !important;
+    max-width: 100% !important;
 }
 
 .w-full {
-  width: 100% !important;
+    width: 100% !important;
 }
