@@ -31,6 +31,66 @@ document.addEventListener('DOMContentLoaded', () => {
             alt: 'big tits',
             src: '/src/assets/images/6.jpg',
         },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-1.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-2.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-3.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-1.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-2.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-3.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-4.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-5.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-6.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-7.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-8.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-9.jpg',
+        },
+        {
+            alt: 'water color',
+            src: '/src/assets/images/wc-10.jpg',
+        },
+        {
+            alt: 'panoramic',
+            src: '/src/assets/images/pan-1.jpg',
+        },
+        {
+            alt: 'panoramic',
+            src: '/src/assets/images/pan-2.jpg',
+        },
     ];
 
     const navItems = document.querySelectorAll('nav li') || [];

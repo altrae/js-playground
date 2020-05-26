@@ -1,4 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+:root {
+    --orange-shadow: 1px 1px 1px #D78;
+}
+
 * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -69,12 +73,17 @@ nav ul li {
     padding: .5em 1em;
 }
 
+nav ul li:not(.active, .highlighted) {
+    text-shadow: var(--orange-shadow);
+}
+
 #hero {
     clear: both;
     height: 300px;
     position: relative;
     [data-component-name='Image'] {
         img {
+            border-radius: 0 0 12px 12px;
             height: 300px;
             margin: 0 auto;
             opacity: 0;
@@ -120,7 +129,7 @@ footer {
     padding: 1em;
     position: relative;
     text-align: center;
-    text-shadow: 1px 1px 1px #D78;
+    text-shadow: var(--orange-shadow);
     width: 100%;
 }
 
