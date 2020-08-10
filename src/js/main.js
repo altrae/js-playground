@@ -20,18 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         //     src: '/src/assets/images/3.jpg',
         // },
         {
-            alt: 'big tits',
-            src: '/src/assets/images/4.jpg',
-        },
-        {
-            alt: 'big tits',
-            src: '/src/assets/images/5.jpg',
-        },
-        {
-            alt: 'big tits',
-            src: '/src/assets/images/6.jpg',
-        },
-        {
             alt: 'water color',
             src: '/src/assets/images/wc-1.jpg',
         },
