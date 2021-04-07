@@ -1,3 +1,4 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
@@ -45,6 +46,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         // new CopyWebpackPlugin([{ from: './src/favicon.ico', to: '' }]),
         // Allows html to use appropriate bundle.js
         new HtmlWebpackPlugin({
