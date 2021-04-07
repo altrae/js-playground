@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
     // devtool: 'none', // removes eval in bundle.js for 
     entry: {
-        main: './src/js/main.js',
+        main: './src/js/index.js',
         vendor: './src/js/vendor.js'
     },
     // [
@@ -14,34 +14,34 @@ module.exports = {
     // ],
     module: {
         rules: [{
-                test: /\.html$/,
-                use: ['html-loader']
-            },
-            {
-                test: /\.(gif|ico|jpe?g|png|svg)/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        esModule: false,
-                        name(file) {
-                            return process.env.NODE_ENV === 'development' ?
-                                '[name].[ext]' :
-                                '[name]-[hash].[ext]';
-                        },
-                        // name: '[name]-[hash].[ext]',
-                        outputPath: 'assets/images'
-                    }
+            test: /\.html$/,
+            use: ['html-loader']
+        },
+        {
+            test: /\.(gif|ico|jpe?g|png|svg)/,
+            use: {
+                loader: 'file-loader',
+                options: {
+                    esModule: false,
+                    name(file) {
+                        return process.env.NODE_ENV === 'development' ?
+                            '[name].[ext]' :
+                            '[name]-[hash].[ext]';
+                    },
+                    // name: '[name]-[hash].[ext]',
+                    outputPath: 'assets/images'
                 }
-            },
-            {
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    cacheDirectory: true,
-                    presets: ['@babel/preset-react']
-                },
-                test: /\.jsx?$/
             }
+        },
+        {
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+                cacheDirectory: true,
+                presets: ['@babel/preset-react']
+            },
+            test: /\.jsx?$/
+        }
         ]
     },
     plugins: [
