@@ -1,0 +1,40 @@
+@import 'yoda-design-tokens';
+
+@keyframes rotate {
+	from { transform: rotate(0deg);   }
+	to   { transform: rotate(360deg); }
+}
+
+.loader {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    &::after {
+        animation: rotate 0.5s linear infinite;
+        border: 3px solid var(--color-core-white-100);
+        border-radius: 100%;
+        border-top-color: var(--color-core-gray-600);
+        content: '';
+        display: block;
+        height: 60px;
+        opacity: .7;
+        width: 60px;
+    }
+}
+
+.loader-loader::after {
+    animation: loader-rotate 5s linear infinite alternate;
+    border: 90px solid #FF5BF6;
+    border-bottom-color: blue;
+    border-radius: 0;
+    border-right-color: yellow;
+    border-top-color: #1FFB20;
+    box-shadow: 7px 7px 21px black;
+    content: '';
+    display: block;
+    height: 200px;
+    opacity: .7;
+    width: 200px;
+}
