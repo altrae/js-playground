@@ -74,7 +74,7 @@ const getStudioGhibliFilmData = (url, selector) => {
                     .catch(err => console.debug(err));
             });
         })
-        .catch(error => console.log(error));
+        .catch(error => console.error(error));
 };
 
 const getRecipePuppyData = (url, selector) => {
@@ -83,7 +83,6 @@ const getRecipePuppyData = (url, selector) => {
     let searchParams = new URLSearchParams();
     for (const pair of new FormData(document.forms['recipe-fetch-form'])) {
         searchParams.append(pair[0], pair[1]);
-        console.log('pair:', pair);
     }
 
     searchParams = searchParams && `?${searchParams}`;
@@ -189,14 +188,11 @@ const getRecipePuppyData = (url, selector) => {
         .catch(error => console.error(error));
 };
 
-const sortRecipeByTitle = arr => arr
+const sortRecipeByTitle = recipes => recipes
     .filter(item => item.title)
     .sort((item1, item2) => {
-        if (item1.title < item2.title) {
-            return -1;
-        } else if (item1.title > item2.title) {
-            return 1;
-        }
+        if (item1.title < item2.title) return -1;
+        else if (item1.title > item2.title) return 1;
 
         return 0;
     });
@@ -226,7 +222,6 @@ const invertObj = input => {
 
 const isNull = item => item === null;
 const isUndefined = item => item === undefined;
-
 const isNullOrUndefined = item => isNull(item) || isUndefined(item);
 
 export {

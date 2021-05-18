@@ -1,0 +1,111 @@
+html,
+body {
+    height: 100%;
+    background-image: url(http://3.bp.blogspot.com/-5K6ttOvC4qY/VK07YOHcPxI/AAAAAAAAGy8/vcAa3Rm9MoE/s1600/web-texture-brown-canvas.jpg);
+}
+
+.topbar .row > div {
+    display: inline-block;
+    margin: 0 14px;
+    position: relative;
+}
+
+#async_table_banner {
+    background-color:#9EA4A9;
+}
+
+.notouch-device .login-menu-item:hover {
+    background-color: #44B497;
+}
+
+#topbar #login-menu #connected_username {
+    color: white !important;
+}
+
+#achievements-menu-item {
+    padding: 0;
+}
+
+#login-menu > div {
+    margin: 0;
+}
+
+.chatwindowexpanded,
+.chatwindowlogs,
+.l_content_block,
+.pagesection h2,
+.pagesection h3,
+.pagesection,
+.player-board,
+.portlet h2,
+.portlet h3,
+.portlet,
+.roundedbox .roundedbox_bottom,
+.roundedbox .roundedbox_bottomleft,
+.roundedbox .roundedbox_bottommain,
+.roundedbox .roundedbox_bottomright,
+.roundedbox .roundedbox_main,
+.roundedbox .roundedbox_topleft,
+.roundedbox .roundedbox_topmain,
+.roundedbox .roundedbox_topright,
+.roundedbox .roundedboxinner,
+.roundedbox {
+    background-color:#D3D7DB;
+}
+
+.pageheader {
+    background-color:#A8B7C3;
+}
+
+.pageheader .pageheader_menuitem {
+    color: #FFF;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.notouch-device .pageheader_menuitem:hover {
+    color:cyan;
+}
+
+.fa-circle.status_inactive {
+    background: yellow;
+    border-radius: 50%;
+    border: 3px solid darkorange;
+    color: yellow;
+}
+
+.fa-circle.status_offline {
+    background: lightgrey;
+    border-radius: 50%;
+    border: 3px solid darkblue;
+    color: lightgrey;
+}
+
+.fa-circle.status_online {
+    background: lime;
+    border-radius: 50%;
+    border: 3px solid darkgreen;
+    color: lime;
+}
+
+.fa-mobile.status_inactive {
+    color: yellow;
+}
+
+.fa-mobile.status_offline {
+    color: lightgrey;
+}
+
+.fa-mobile.status_online {
+    color: lime;
+}
+
+.gametable_status_asyncinit .pageheader,
+.gametable_status_asyncinit.gametable,
+.gametable_status_asyncopen .pageheader,
+.gametable_status_asyncopen.gametable,
+.gametable_status_meeting .pageheader,
+.gametable_status_meeting.gametable,
+.gametable_status_tournamentopenturnbased .pageheader,
+.gametable_status_tournamentopenturnbased.gametable {
+    background-color:#D3D0C6;
+}

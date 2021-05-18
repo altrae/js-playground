@@ -44,6 +44,7 @@
     },
     "scripts": {
         "build": "webpack --config webpack.prod.js",
+        "hello": "hello",
         "start": "webpack-dev-server --config webpack.dev.js --open",
         "watch": "webpack --config webpack.watch.js",
         "watch-scss": "node-sass --watch css -o dist"

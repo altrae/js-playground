@@ -4,14 +4,13 @@ import invertObj from './utils';
 const stack = [];
 // Here is our recursive function
 const power = (base, exponent) => {
-    // Base case 
+    // Base case
     if (exponent === 0) {
         return 1;
     }
     // Recursive case
     else {
         stack[exponent - 1] = base * power(base, exponent - 1);
-        console.log(stack[exponent - 1]);
 
         return stack[exponent - 1];
     }
@@ -80,10 +79,6 @@ const mary = {
 // 	})();
 // }
 
-// function functionToCall() {
-// 	console.log("Function called.");
-// }
-
 // $(function() {
 // 	//callAnotherFunction(5, 1000, functionToCall);
 // 	callAnotherFunction(functionToCall);
@@ -92,30 +87,15 @@ const mary = {
 
 // const myArray = [1, 2, 3, 4, 5, 6, 7, 7, 6];
 // const myArray2 = [9, 10, 12]
+
 // if($.inArray(4, myArray) != -1)
-// 	console.log("4 is in the array");
 // if($.inArray(77, myArray) != -1)
-// 	console.log("77 is in the array");
 // $.unique(myArray);
-// console.log(myArray);
 // $.merge(myArray, myArray2);
-// console.log(myArray);
 
-// const newArray = $.map(myArray, function(value, key) {
-// 	return value * 2;
-// });
-// console.log(newArray);
+// const newArray = $.map(myArray, (value, key) => value * 2);
 
-// const grepArray = $.grep(myArray, function(value) {
-// 	return value%2 == 0;
-// });
-// console.log(grepArray);
-
-// console.log($.makeArray($("div")));
-
-// $(function () {
-
-// });
+// const grepArray = $.grep(myArray, value => value%2 == 0);
 
 
 // Conway's Game of Life
@@ -183,11 +163,7 @@ const game = new Life([
 	[0, 0, 0, 0, 0]
 ]);
 
-console.log(game + '');
-
 game.next();
-
-console.log(game + '');*/
 
 // You are given a mapping of usernames to the skills each user is proficient at
 const userToSkill = {
@@ -232,13 +208,9 @@ console.info(invertObj(userToSkill));
         window.location.href = 'http://netflix.com';
     }
 
-    console.log(elSet);
-
     elSet.forEach(
         elArray => elArray.map(element => element.parentNode.replaceChild(element.firstChild, element))
     );
-
-    console.log(slider);
 
     slider.map(
         element => { element.parentNode.removeChild(element) }

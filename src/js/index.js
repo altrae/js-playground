@@ -1,24 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { getRecipePuppyData, getStudioGhibliFilmData, highlight, setActive } from './utils';
-import Slideshow from './slideshow';
+import Slideshow from './components/Slideshow';
 import Input from './components/Input';
 import '../css/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
     const images = [
-        // {
-        //     alt: 'sunset',
-        //     src: '/src/assets/images/1.jpg',
-        // },
-        // {
-        //     alt: 'flowers',
-        //     src: '/src/assets/images/2.jpg',
-        // },
-        // {
-        //     alt: 'flower bowl',
-        //     src: '/src/assets/images/3.jpg',
-        // },
         {
             alt: 'water color',
             src: '/src/assets/images/wc-1.jpg',
@@ -75,10 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alt: 'panoramic',
             src: '/src/assets/images/pan-1.jpg',
         },
-        {
-            alt: 'panoramic',
-            src: '/src/assets/images/pan-2.jpg',
-        },
     ];
 
     const navItems = document.querySelectorAll('nav li') || [];
@@ -94,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideshowProps = {
         id: 'hero-1',
         images,
-        rotationInterval: 3000
+        rotationInterval: 3000,
+        shuffle: true
     };
 
     const inputProps = {
@@ -143,10 +128,8 @@ const getData = (async () => {
 
         if (response.ok && response.status >= 200 && response.status <= 400) {
             const json = await response.json();
-            console.log('response says what?', json);
-            console.log('response', response);
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 })();
